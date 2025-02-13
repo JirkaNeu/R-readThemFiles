@@ -1,9 +1,15 @@
 library(officer)
-library(here)
+library(rstudioapi)
 
-path = file.path(here(), "docs/")
-setwd(path)
-allfiles = dir(path)
+# https://stackoverflow.com/questions/3452086/getting-path-of-an-r-script
+this_file = rstudioapi::getActiveDocumentContext()$path
+path = box::file()
+source(file.path(path, "inject.r"))
+setwd(file.path(path, "docs"))
+allfiles = dir()
+print(allfiles)
+
+
 
 doreaddocx = function(varin){
   varin = read_docx(varin) |> docx_summary()
@@ -11,17 +17,12 @@ doreaddocx = function(varin){
   return(varout)
 }
 
-'
-file = "example.docx"
-this_file = file.path(path, file)
-content = read_docx(this_file) |> docx_summary()
-rawtxt = capture.output(cat(content$text))
-rawtxt
-'
-
-#-------------------------#
-
 docx_files_jne = list.files(pattern="*.docx", full.names=F)
 docx_inhalte_jne = lapply(docx_files_jne, doreaddocx)
 
+#-------------------------#
+
+df_names = c("id", "name", "age")
+checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
+colnames(checkout_df) = df_names
 
