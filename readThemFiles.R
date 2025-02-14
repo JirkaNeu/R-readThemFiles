@@ -8,7 +8,16 @@ check_path = unlist(strsplit(this_file, split = "/"))
 check_path = paste0(check_path[1:length(check_path)-1], collapse="/")
 if (check_path != path){warning("There might be issues related to the path of files.", call. = TRUE, immediate. = FALSE, domain = NULL)}
 
-source(file.path(path, "inject.r"))
+tryCatch({
+  source(file.path(path, "insert.r"))
+},
+error = function(e) {
+  cat("Error: ", conditionMessage(e), "\n")
+},
+warning = function(w) {
+  cat("Warning: ", conditionMessage(w), "\n")
+}
+)
 
 setwd(file.path(path, "docs"))
 allfiles = dir()
