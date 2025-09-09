@@ -1,5 +1,6 @@
 library(officer)
 library(rstudioapi)
+library(pdftools)
 
 # https://stackoverflow.com/questions/3452086/getting-path-of-an-r-script
 this_file = rstudioapi::getActiveDocumentContext()$path
@@ -37,4 +38,15 @@ docx_inhalte_jne = lapply(docx_files_jne, doreaddocx)
 df_names = c("id", "name", "age")
 checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
 colnames(checkout_df) = df_names
+
+##------------------------#
+require(pdftools)
+
+get_pdf_txt = pdf_text(allfiles[2])
+
+cat(get_pdf_txt)
+
+
+
+
 
