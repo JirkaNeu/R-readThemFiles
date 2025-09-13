@@ -46,7 +46,14 @@ get_pdf_txt = pdf_text(allfiles[2])
 
 cat(get_pdf_txt)
 
+##------------------------#
 
+#-- xlsx files
+
+xlsx_file = T
+get_xlsx_file = xlsx_file
+
+##------------------------#
 
 
 
