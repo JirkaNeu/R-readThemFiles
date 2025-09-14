@@ -1,6 +1,8 @@
 library(officer)
 library(rstudioapi)
 library(pdftools)
+library(readxl)
+
 
 # https://stackoverflow.com/questions/3452086/getting-path-of-an-r-script
 this_file = rstudioapi::getActiveDocumentContext()$path
@@ -39,21 +41,19 @@ df_names = c("id", "name", "age")
 checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
 colnames(checkout_df) = df_names
 
-##------------------------#
+##-------- PDFs ------------#
 require(pdftools)
-
 get_pdf_txt = pdf_text(allfiles[2])
-
 cat(get_pdf_txt)
+##--------------------------#
 
-##------------------------#
 
-#-- xlsx files
-
-xlsx_file = T
-get_xlsx_file = xlsx_file
-
-##------------------------#
+##-------- xlsx ------------#
+require(readxl)
+xlsx_files_jne = list.files(pattern="*.xlsx", full.names=F)
+one_xlsx_file = xlsx_files_jne[1]
+xlsx2df = read_xlsx(one_xlsx_file, encoding="UTF-8")
+##--------------------------#
 
 
 
