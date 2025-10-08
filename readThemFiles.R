@@ -44,6 +44,7 @@ colnames(checkout_df) = df_names
 
 ##--------- csv ------------#
 get_csv_txt = read.csv2(allfiles[9])
+get_csv_txt = read.csv2(allfiles[10]) #semicolon
 print(get_csv_txt)
 ##--------------------------#
 
