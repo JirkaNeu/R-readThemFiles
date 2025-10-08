@@ -41,6 +41,13 @@ df_names = c("id", "name", "age")
 checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
 colnames(checkout_df) = df_names
 
+
+##--------- csv ------------#
+get_csv_txt = read.csv2(allfiles[9])
+print(get_csv_txt)
+##--------------------------#
+
+
 ##-------- PDFs ------------#
 require(pdftools)
 get_pdf_txt = pdf_text(allfiles[2])
