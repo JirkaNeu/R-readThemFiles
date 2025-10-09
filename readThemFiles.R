@@ -2,7 +2,7 @@ library(officer)
 library(rstudioapi)
 library(pdftools)
 library(readxl)
-library(RPostgreSQL)
+library(RPostgres)
 
 
 # https://stackoverflow.com/questions/3452086/getting-path-of-an-r-script
@@ -66,7 +66,8 @@ xlsx2df = read_xlsx(one_xlsx_file, encoding="UTF-8")
 
 
 ##-------- SQL ------------#
-require(RPostgreSQL)
+#require(RPostgreSQL) #--> doesn't install
+require(RPostgres)
 
 ##--------------------------#
 
