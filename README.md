@@ -1,2 +1,2 @@
 # R-readThemFiles
-work in progress - trying to access different types of files (docx, pdf)
+work in progress - reading different types of files (docx, xlsx, csv, pdf, sql)
