@@ -43,6 +43,15 @@ checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
 colnames(checkout_df) = df_names
 
 
+##--------- 2do ------------#
+file()
+system()
+file.exists()
+file.choose()
+##--------------------------#
+
+
+
 ##--------- csv ------------#
 get_csv_txt = read.csv2(allfiles[9])
 get_csv_txt = read.csv2(allfiles[10]) #semicolon
