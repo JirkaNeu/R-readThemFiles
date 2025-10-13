@@ -44,10 +44,14 @@ colnames(checkout_df) = df_names
 
 
 ##--------- 2do ------------#
-file()
-system()
-file.exists()
-file.choose()
+pick_file = file.choose()
+
+
+
+#file()
+#system(C:\test\test.pdf)
+#file.exists()
+
 ##--------------------------#
 
 
