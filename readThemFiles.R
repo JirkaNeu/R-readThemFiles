@@ -43,18 +43,26 @@ checkout_df = data.frame(matrix(ncol = length(df_names), nrow = 10))
 colnames(checkout_df) = df_names
 
 
-##--------- 2do ------------#
+##--------- show/open ------------#
+file.show("test.txt", encoding = "UTF-8")
+
+system("open C:/test/test.pdf")
+system("open https:/iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf")
+
+a_file = "C:/test/test.pdf"
+if (file.exists(a_file)){
+  shell(a_file, wait = F) #Windows
+}else{
+  warning("File not found...")
+}
+
 pick_file = file.choose()
 
-
-
-#file()
-#system(C:\test\test.pdf)
-#file.exists()
-
+if (!grepl("\\.pdf$", pick_file, ignore.case = TRUE)) {
+  stop("You did not choose a PDF file.\nSelected: ", pick_file)
+}
 ##--------------------------#
-
-
+stop("script stopped")
 
 ##--------- csv ------------#
 get_csv_txt = read.csv2(allfiles[9])
