@@ -88,13 +88,28 @@ cat(get_pdf_txt)
 require(readxl)
 xlsx_files_jne = list.files(pattern="*.xlsx", full.names=F)
 one_xlsx_file = xlsx_files_jne[1]
-xlsx2df = read_xlsx(one_xlsx_file, encoding="UTF-8")
+xlsx2df = read_xlsx(one_xlsx_file)
 ##--------------------------#
 
 
 ##-------- SQL ------------#
-#require(RPostgreSQL) #--> doesn't install
 require(RPostgres)
+
+print(dbpass)
+
+con = dbConnect(
+  Postgres(),
+  host     = dbpass[[1]],
+  port     = dbpass[[2]],
+  dbname   = dbpass[[3]],
+  user     = dbpass[[4]],
+  password = dbpass[[5]]
+)
+
+db_df = dbGetQuery(con, "SELECT * FROM customers")
+print(db_df)
+
+dbDisconnect(con)
 
 ##--------------------------#
 
