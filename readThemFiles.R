@@ -56,11 +56,17 @@ if (file.exists(a_file)){
   warning("File not found...")
 }
 
-pick_file = file.choose()
+# file.choose is not working properly on Windows 11
+# https://stackoverflow.com/questions/76237727/issue-with-base-r-file-choose-function-in-windows-11-file-explorer-comes-up-b
+#pick_file = file.choose()
+#pick_file = choose.files()
+#require(tcltk)
+#pick_file = tk_choose.files()
+#
+#if (!grepl("\\.pdf$", pick_file, ignore.case = TRUE)) {
+#  stop("You did not choose a PDF file.\nSelected: ", pick_file)
+#}
 
-if (!grepl("\\.pdf$", pick_file, ignore.case = TRUE)) {
-  stop("You did not choose a PDF file.\nSelected: ", pick_file)
-}
 ##--------------------------#
 stop("script stopped")
 
