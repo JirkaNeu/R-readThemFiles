@@ -3,6 +3,7 @@ library(rstudioapi)
 library(pdftools)
 library(readxl)
 library(RPostgres)
+library(odbc)
 
 
 # https://stackoverflow.com/questions/3452086/getting-path-of-an-r-script
@@ -64,7 +65,7 @@ if (file.exists(a_file)){
 #pick_file = tk_choose.files()
 #
 #if (!grepl("\\.pdf$", pick_file, ignore.case = TRUE)) {
-#  stop("You did not choose a PDF file.\nSelected: ", pick_file)
+#  stop("No PDF file.\nSelected: ", pick_file)
 #}
 
 ##--------------------------#
@@ -113,3 +114,7 @@ dbDisconnect(con)
 
 ##--------------------------#
 
+##-------- ODBC ------------#
+require(odbc)
+#in progress
+##--------------------------#
